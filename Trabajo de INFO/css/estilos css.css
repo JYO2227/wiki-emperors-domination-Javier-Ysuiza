@@ -1,0 +1,892 @@
+/* ==========================================================================
+   1. CONFIGURACIÓN GENERAL E INTERACTIVIDAD BASE
+   ========================================================================== */
+:root {
+    --oro-imperial: #e5b84b;
+    --sombra-profunda: rgba(0, 0, 0, 0.45);
+    --transicion: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px;
+    line-height: 1.7;
+    background-attachment: fixed;
+    transition: var(--transicion);
+}
+
+header {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 32px;
+    border-radius: 14px;
+    text-align: center;
+    transition: var(--transicion);
+}
+
+header:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px var(--sombra-profunda);
+}
+
+section {
+    max-width: 1000px;
+    margin: 24px auto 0;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 24px var(--sombra-profunda);
+    transition: var(--transicion);
+}
+
+footer {
+    max-width: 1000px;
+    margin: 32px auto 0;
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.92em;
+    transition: var(--transicion);
+}
+
+/* ==========================================================================
+   2. NAVEGACIÓN Y MULTIMEDIA INTERACTIVA
+   ========================================================================== */
+nav ul {
+    list-style: none;
+    padding: 14px;
+    margin: 16px 0;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+nav ul li {
+    margin: 8px 0;
+}
+
+nav ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    transition: var(--transicion);
+}
+
+nav ul li a::after {
+    content: "✦";
+    opacity: 0.65;
+    transition: var(--transicion);
+}
+
+nav ul li a:hover {
+    transform: translateX(8px);
+    background: rgba(229, 184, 75, 0.22);
+    border-color: var(--oro-imperial);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+nav ul li a:hover::after {
+    opacity: 1;
+    transform: rotate(90deg) scale(1.2);
+}
+
+nav a {
+    font-weight: 700;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: var(--transicion);
+}
+
+nav a:hover {
+    background: rgba(229, 184, 75, 0.2);
+    border-color: var(--oro-imperial);
+}
+
+section img {
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    transition: var(--transicion);
+}
+
+section img:hover {
+    transform: scale(1.015);
+    border-color: var(--oro-imperial);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
+}
+
+audio,
+video {
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 14px;
+    border-radius: 8px;
+    transition: var(--transicion);
+}
+
+audio:hover,
+video:hover,
+audio:focus-visible,
+video:focus-visible {
+    box-shadow: 0 0 0 3px rgba(229, 184, 75, 0.55);
+}
+
+/* ==========================================================================
+   3. ESTILOS POR PÁGINA: FONDO, LETRA Y COLORES TEMÁTICOS
+   ========================================================================== */
+
+/* --- A. Presentación: Pergamino Imperial Oscuro + Letra Clásica con Patines --- */
+.tema-presentacion {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+    background: radial-gradient(circle at top, #3b2618 0%, #1d120b 55%, #0e0805 100%);
+    color: #f6e7c1;
+}
+
+.tema-presentacion header {
+    background: linear-gradient(135deg, #2b1a0f 0%, #4a2d18 100%);
+    border: 2px solid #d4af37;
+    color: #ffe8a3;
+}
+
+.tema-presentacion section {
+    background: linear-gradient(160deg, #26180f 0%, #190f09 100%);
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    border-top: 5px solid #d4af37;
+}
+
+.tema-presentacion nav ul li a,
+.tema-presentacion nav a {
+    color: #ffe8a3;
+}
+
+.tema-presentacion footer {
+    background: #140c07;
+    color: #e5b84b;
+    border-top: 1px solid #d4af37;
+}
+
+/* --- B. Página Principal: Cielo Nocturno de los Nueve Mundos + Letra Moderna Limpia --- */
+.tema-principal {
+    font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #071324 0%, #0e2442 55%, #16365e 100%);
+    color: #dceeff;
+}
+
+.tema-principal header {
+    background: linear-gradient(135deg, #0b1d36 0%, #163966 100%);
+    border: 2px solid #38bdf8;
+    color: #e0f2fe;
+}
+
+.tema-principal section {
+    background: linear-gradient(160deg, #0c1f38 0%, #081526 100%);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    border-left: 6px solid #38bdf8;
+}
+
+.tema-principal section h2 {
+    color: #7dd3fc;
+}
+
+.tema-principal nav ul li a,
+.tema-principal nav a {
+    color: #bae6fd;
+}
+
+.tema-principal footer {
+    background: #06101f;
+    color: #7dd3fc;
+    border-top: 1px solid #38bdf8;
+}
+
+/* --- C. Subtema 1 (Li Qiye y Cultivo): Cuervo Oscuro y Carmesí + Letra Impactante --- */
+.tema-cultivo {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: linear-gradient(135deg, #09070a 0%, #240b14 55%, #3d0f1f 100%);
+    color: #ffe4ea;
+}
+
+.tema-cultivo header {
+    background: linear-gradient(135deg, #1f0810 0%, #4d1024 100%);
+    border: 2px solid #fb7185;
+    color: #fff1f2;
+}
+
+.tema-cultivo section {
+    background: linear-gradient(160deg, #1c0910 0%, #110509 100%);
+    border: 1px solid rgba(251, 113, 133, 0.35);
+    border-left: 6px solid #f43f5e;
+}
+
+.tema-cultivo section h2 {
+    color: #fda4af;
+}
+
+.tema-cultivo section li {
+    padding: 7px 12px;
+    margin: 6px 0;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: var(--transicion);
+}
+
+.tema-cultivo section li:hover {
+    background: rgba(244, 63, 94, 0.22);
+    transform: translateX(6px);
+}
+
+.tema-cultivo nav ul li a,
+.tema-cultivo nav a {
+    color: #fecdd3;
+}
+
+.tema-cultivo footer {
+    background: #0d0306;
+    color: #fda4af;
+    border-top: 1px solid #f43f5e;
+}
+
+/* --- D. Subtema 2 (Personajes, Arcos y Sub-arcos): Crónica Áurea + Letra Editorial --- */
+.tema-personajes {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: linear-gradient(135deg, #12100b 0%, #2b2312 55%, #423518 100%);
+    color: #fef3c7;
+}
+
+.tema-personajes header {
+    background: linear-gradient(135deg, #241c0d 0%, #4d3b16 100%);
+    border: 2px solid #facc15;
+    color: #fef9c3;
+}
+
+.tema-personajes section {
+    background: linear-gradient(160deg, #211a0d 0%, #140f07 100%);
+    border: 1px solid rgba(250, 204, 21, 0.35);
+    border-left: 6px solid #eab308;
+}
+
+.tema-personajes section h2 {
+    color: #fde047;
+}
+
+.tema-personajes section li {
+    padding: 7px 12px;
+    margin: 6px 0;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: var(--transicion);
+}
+
+.tema-personajes section li:hover {
+    background: rgba(234, 179, 8, 0.2);
+    transform: translateX(6px);
+}
+
+.tema-personajes nav ul li a,
+.tema-personajes nav a {
+    color: #fef08a;
+}
+
+.tema-personajes footer {
+    background: #120e06;
+    color: #fde047;
+    border-top: 1px solid #eab308;
+}
+
+/* --- E. Subtema 3 (Tesoros Celestiales): Jade Ancestral + Letra Geométrica --- */
+.tema-tesoros {
+    font-family: 'Century Gothic', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #061714 0%, #0c2e28 55%, #12473e 100%);
+    color: #d1fae5;
+}
+
+.tema-tesoros header {
+    background: linear-gradient(135deg, #092620 0%, #114f44 100%);
+    border: 2px solid #34d399;
+    color: #ecfdf5;
+}
+
+.tema-tesoros section {
+    background: linear-gradient(160deg, #0a241f 0%, #061411 100%);
+    border: 1px solid rgba(52, 211, 153, 0.35);
+    border-left: 6px solid #10b981;
+}
+
+.tema-tesoros section h2 {
+    color: #6ee7b7;
+}
+
+.tema-tesoros section li {
+    padding: 7px 12px;
+    margin: 6px 0;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: var(--transicion);
+}
+
+.tema-tesoros section li:hover {
+    background: rgba(16, 185, 129, 0.2);
+    transform: translateX(6px);
+}
+
+.tema-tesoros nav ul li a,
+.tema-tesoros nav a {
+    color: #a7f3d0;
+}
+
+.tema-tesoros footer {
+    background: #04120f;
+    color: #6ee7b7;
+    border-top: 1px solid #10b981;
+}
+
+/* --- F. Subtema 4 (Filosofía y el Dao): Vacío Cósmico y Amatista + Letra Contemplativa --- */
+.tema-filosofia {
+    font-family: 'Garamond', Georgia, serif;
+    background: linear-gradient(135deg, #0c071a 0%, #1d1038 55%, #31195e 100%);
+    color: #f3e8ff;
+}
+
+.tema-filosofia header {
+    background: linear-gradient(135deg, #1a0c33 0%, #3d1c78 100%);
+    border: 2px solid #c084fc;
+    color: #faf5ff;
+}
+
+.tema-filosofia section {
+    background: linear-gradient(160deg, #180c2e 0%, #0e061c 100%);
+    border: 1px solid rgba(192, 132, 252, 0.35);
+    border-left: 6px solid #a855f7;
+}
+
+.tema-filosofia section h2 {
+    color: #d8b4fe;
+}
+
+.tema-filosofia section li {
+    padding: 7px 12px;
+    margin: 6px 0;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: var(--transicion);
+}
+
+.tema-filosofia section li:hover {
+    background: rgba(168, 85, 247, 0.22);
+    transform: translateX(6px);
+}
+
+.tema-filosofia nav ul li a,
+.tema-filosofia nav a {
+    color: #e9d5ff;
+}
+
+.tema-filosofia footer {
+    background: #090414;
+    color: #d8b4fe;
+    border-top: 1px solid #a855f7;
+}
+
+/* --- G. Fuentes Bibliográficas: Archivo Académico Oscuro + Letra Técnica --- */
+.tema-fuentes {
+    font-family: 'Consolas', 'Courier New', monospace;
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 55%, #21262d 100%);
+    color: #e6edf3;
+}
+
+.tema-fuentes header {
+    background: linear-gradient(135deg, #161b22 0%, #28313d 100%);
+    border: 2px solid #8b949e;
+    color: #f0f6fc;
+}
+
+.tema-fuentes section {
+    background: linear-gradient(160deg, #141920 0%, #0b0e14 100%);
+    border: 1px solid rgba(139, 148, 158, 0.4);
+    border-left: 6px solid #9ca3af;
+}
+
+.tema-fuentes section h2 {
+    color: #c9d1d9;
+}
+
+.tema-fuentes section ul li {
+    padding: 8px 12px;
+    margin: 8px 0;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: var(--transicion);
+}
+
+.tema-fuentes section ul li:hover {
+    background: rgba(139, 148, 158, 0.2);
+    transform: translateX(6px);
+}
+
+.tema-fuentes nav ul li a,
+.tema-fuentes nav a {
+    color: #f0f6fc;
+}
+
+.tema-fuentes footer {
+    background: #090c10;
+    color: #c9d1d9;
+    border-top: 1px solid #8b949e;
+}
+.centrar {text-align: center;}
+
+/* ==========================================================================
+   4. TARJETAS DE RESUMEN, ETIQUETAS Y BARRA DE NAVEGACIÓN
+   ========================================================================== */
+.badge-categoria {
+    display: inline-block;
+    padding: 4px 11px;
+    margin-bottom: 10px;
+    border-radius: 999px;
+    font-size: 0.78em;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    background: rgba(229, 184, 75, 0.18);
+    border: 1px solid var(--oro-imperial);
+    color: #ffe8a3;
+}
+
+.tarjeta-resumen {
+    padding: 18px 20px;
+    margin: 16px 0;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-left: 4px solid var(--oro-imperial);
+    transition: var(--transicion);
+}
+
+.tarjeta-resumen:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.tarjeta-meta {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.88em;
+    opacity: 0.85;
+}
+
+.barra-navegacion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================================================================
+     SEPARADORES E IMÁGENES DENTRO DEL CONTENIDO
+   ========================================================================== */
+hr.separador-tema {
+    border: 0;
+    height: 2px;
+    margin: 28px 0;
+    background: linear-gradient(90deg, transparent, var(--oro-imperial), transparent);
+    opacity: 0.75;
+}
+
+.divisor-ornamental {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 26px 0;
+    font-size: 0.85em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+
+.divisor-ornamental::before,
+.divisor-ornamental::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.25);
+}
+.marco-imagen {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.marco-imagen img {
+    display: block;
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 24px var(--sombra-profunda);
+    transition: var(--transicion);
+}
+
+.marco-imagen img:hover {
+    transform: scale(1.015);
+    border-color: var(--oro-imperial);
+}
+
+.marco-imagen figcaption {
+    margin-top: 8px;
+    font-size: 0.88em;
+    font-style: italic;
+    opacity: 0.85;
+}
+/* ==========================================================================
+   PESTAÑAS DESPLEGABLES DE PERSONAJES )
+   ========================================================================== */
+.contenedor-personajes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.pestana-personaje {
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(250, 204, 21, 0.35);
+    overflow: hidden;
+    transition: var(--transicion);
+}
+
+.pestana-personaje:hover {
+    border-color: #facc15;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.38);
+}
+
+.pestana-personaje summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 14px 18px;
+    font-weight: 700;
+    font-size: 1.08em;
+    color: #fde047;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: rgba(234, 179, 8, 0.12);
+    transition: var(--transicion);
+}
+
+.pestana-personaje summary::-webkit-details-marker {
+    display: none;
+}
+
+.pestana-personaje summary::after {
+    content: "▾";
+    font-size: 1.1em;
+    transition: transform 0.3s ease;
+}
+
+.pestana-personaje[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.pestana-personaje[open] summary {
+    background: rgba(234, 179, 8, 0.24);
+    border-bottom: 1px solid rgba(250, 204, 21, 0.3);
+}
+
+.etiqueta-etapa {
+    margin-left: auto;
+    margin-right: 10px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.74em;
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(250, 204, 21, 0.45);
+    color: #fef3c7;
+}
+
+.contenido-personaje {
+    padding: 16px 18px;
+    background: rgba(0, 0, 0, 0.22);
+    animation: abrirPestana 0.28s ease-out;
+}
+
+@keyframes abrirPestana {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); }}
+/* ==========================================================================
+   MEJORAS VISUALES - PÁGINA DEL PROTAGONISTA
+   ========================================================================== */
+.tema-cultivo section p {
+    line-height: 1.8;
+    margin-bottom: 14px;
+}
+
+.tema-cultivo ul li {
+    margin-bottom: 12px;
+    line-height: 1.75;
+}
+
+.galeria-cultivo {
+    margin: 20px 0;
+}
+
+.imagen-protagonista {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(250, 204, 21, 0.35);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.imagen-protagonista:hover {
+    transform: scale(1.01);
+    border-color: #facc15;
+}
+
+.panel-multimedia {
+    margin: 22px 0;
+    padding: 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(250, 204, 21, 0.25);
+}
+.contenedor-video-corto {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    margin: 15px auto 0;
+    aspect-ratio: 9 / 16;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #eab308;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+}
+.contenedor-video-corto iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+/* ==========================================================================
+   REPRODUCTOR AMBIENTAL UNIFORME
+   ========================================================================== */
+.reproductor-ambiental {
+    margin: 20px 0;
+    padding: 14px 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(250, 204, 21, 0.35);
+    transition: var(--transicion);
+}
+.reproductor-ambiental:hover {
+    border-color: #facc15;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.reproductor-ambiental p {
+    margin: 0 0 10px 0;
+    color: #fde047;
+}
+.reproductor-ambiental audio {
+    width: 100%;
+    max-width: 480px;
+    height: 40px;
+    border-radius: 8px;
+    accent-color: #eab308;}
+   .tema-presentacion .bloque-universidad {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.tema-presentacion .titulo-universidad {
+    flex: 1;
+}
+
+.tema-presentacion .escudo-universidad {
+    width: 200px;
+    height: 200px;
+    border-radius: 30%;
+    object-fit: cover;
+    flex-shrink: 0;}
+    /* ==========================================================================
+   PAISAJES Y RETRATOS EN SECCIONES DE PERSONAJES Y ARCOS
+   ========================================================================== */
+.galeria-tematica {
+    margin: 20px 0;
+}
+
+.imagen-paisaje {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(250, 204, 21, 0.35);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.retrato-personaje {
+    float: right;
+    width: 120px;
+    height: 155px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 8px;
+    margin: 0 0 10px 16px;
+    border: 1px solid rgba(250, 204, 21, 0.45);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+
+.contenido-personaje::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+@media (max-width: 600px) {
+    .retrato-personaje {
+        float: none;
+        display: block;
+        margin: 0 auto 12px auto;
+    }
+}
+/* ==========================================================================
+   GALERÍA DE TESOROS Y RELIQUIAS (Contenido 3)
+   ========================================================================== */
+.galeria-tesoros-doble {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 22px 0;
+}
+
+.galeria-tesoros-triple {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 22px 0;
+}
+
+.tarjeta-imagen-tesoro {
+    margin: 0;
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(250, 204, 21, 0.35);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.tarjeta-imagen-tesoro:hover {
+    transform: translateY(-4px);
+    border-color: #facc15;
+}
+
+.tarjeta-imagen-tesoro img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.tarjeta-imagen-tesoro figcaption {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #e2e8f0;
+}
+
+@media (max-width: 768px) {
+    .galeria-tesoros-doble,
+    .galeria-tesoros-triple {
+        grid-template-columns: 1fr;}}
+        /* ==========================================================================
+   IMÁGENES Y TARJETAS DE FILOSOFÍA (Contenido 4)
+   ========================================================================== */
+.tarjeta-filosofia {
+    margin: 22px 0;
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(250, 204, 21, 0.35);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.tarjeta-filosofia img {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+.tarjeta-filosofia figcaption {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #e2e8f0;
+}
+
+.galeria-filosofia-doble {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 22px 0;
+}
+
+.ficha-destacada-filosofia {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 22px 0;
+    padding: 16px;
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(250, 204, 21, 0.35);
+    border-radius: 10px;
+}
+
+.imagen-lateral-filosofia {
+    width: 145px;
+    height: 175px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 8px;
+    flex-shrink: 0;
+    border: 1px solid rgba(250, 204, 21, 0.45);
+}
+
+@media (max-width: 768px) {
+    .galeria-filosofia-doble {
+        grid-template-columns: 1fr;
+    }
+
+    .ficha-destacada-filosofia {
+        flex-direction: column;
+        text-align: center;
+    }
+}
